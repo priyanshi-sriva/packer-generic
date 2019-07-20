@@ -1,0 +1,24 @@
+[1;32mamazon2 output will be in this color.[0m
+
+[1;32m==> amazon2: Prevalidating AMI Name: packer 1561098293[0m
+[0;32m    amazon2: Found Image ID: ami-0b3046001e1ba9a99[0m
+[1;32m==> amazon2: Creating temporary keypair: packer_5d0c7835-b9b1-5728-8bb8-e45352e0956c[0m
+[1;32m==> amazon2: Creating temporary security group for this instance: packer_5d0c7837-20d5-9d01-e5cf-c252f6c5b9cc[0m
+[1;32m==> amazon2: Authorizing access to port 22 from [0.0.0.0/0] in the temporary security groups...[0m
+[1;32m==> amazon2: Launching a source AWS instance...[0m
+[1;32m==> amazon2: Adding tags to source instance[0m
+[0;32m    amazon2: Adding tag: "Name": "Packer Builder"[0m
+[0;32m    amazon2: Instance ID: i-0a4762d04ab5ccb71[0m
+[1;32m==> amazon2: Waiting for instance (i-0a4762d04ab5ccb71) to become ready...[0m
+[1;32mamazon2 output will be in this color.[0m
+
+[1;32m==> amazon2: Prevalidating AMI Name: packer 1561098314[0m
+[0;32m    amazon2: Found Image ID: ami-0b3046001e1ba9a99[0m
+[1;32m==> amazon2: Creating temporary keypair: packer_5d0c784a-82c0-1a86-21c3-fbee45384145[0m
+[1;32m==> amazon2: Creating temporary security group for this instance: packer_5d0c784b-0a91-2c58-a943-a17594a1c155[0m
+[1;32m==> amazon2: Authorizing access to port 22 from [0.0.0.0/0] in the temporary security groups...[0m
+[1;32m==> amazon2: Launching a source AWS instance...[0m
+[1;32m==> amazon2: Adding tags to source instance[0m
+[0;32m    amazon2: Adding tag: "Name": "Packer Builder"[0m
+[0;32m    amazon2: Instance ID: i-0759f99faa90bf144[0m
+[1;32m==> amazon2: Waiting for instance (i-0759f99faa90bf144) to become ready...[0m

@@ -1,0 +1,115 @@
+{
+    "variables": {
+      "aws_access_key": "",
+      "aws_secret_key": "",
+      "region": "{{user `region`}}",
+      "source_ami": "{{user `source_ami`}}",
+      "instance_type": "{{user `instance_type`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "name": "{{user `name`}}"
+    },
+    "builders": [
+      {
+        "name": "debian",
+        "type": "amazon-ebs",
+        "region": "{{user `region`}}",
+        "source_ami": "{{user `source_ami`}}",
+        "instance_type": "{{user `instance_type`}}",
+        "ssh_username": "{{user `ssh_username`}}",
+        "ami_name": "packer {{timestamp}}",
+        "tags": {
+          "Name": "{{user `name`}}"
+        }
+      },
+      {
+        "name": "amazon2",
+        "type": "amazon-ebs",
+        "region": "{{user `region`}}",
+        "source_ami": "{{user `source_ami`}}",
+        "instance_type": "{{user `instance_type`}}",
+        "ssh_username": "{{user `ssh_username`}}",
+        "ami_name": "packer {{timestamp}}",
+        "tags": {
+          "Name": "{{user `name`}}"
+        }
+      },
+      {
+        "name": "amazon1",
+        "type": "amazon-ebs",
+        "region": "{{user `region`}}",
+        "source_ami": "{{user `source_ami`}}",
+        "instance_type": "{{user `instance_type`}}",
+        "ssh_username": "{{user `ssh_username`}}",
+        "ami_name": "packer {{timestamp}}",
+        "tags": {
+          "Name": "{{user `name`}}"
+        }
+      },
+      {
+        "name": "rpm",
+        "type": "amazon-ebs",
+        "region": "{{user `region`}}",
+        "source_ami": "{{user `source_ami`}}",
+        "instance_type": "{{user `instance_type`}}",
+        "ssh_username": "{{user `ssh_username`}}",
+        "ami_name": "packer {{timestamp}}",
+        "tags": {
+          "Name": "{{user `name`}}"
+        }
+      }
+    ],
+    "provisioners": [
+      {
+        "type": "file",
+        "source": "debian.tar.gz",
+        "destination": "/tmp/debian.tar.gz",
+        "only": ["debian"]
+        
+      },
+      {
+        "type": "shell",
+        "script": "debian.sh",
+        "only": ["debian"]
+      },
+      {
+        "type": "file",
+        "source": "amazon2.tar.gz",
+        "destination": "/tmp/amazon2.tar.gz",
+        "only": ["amazon2"]
+      },
+      {
+        "type": "shell",
+        "script": "amazon2.sh",
+        "only": ["amazon2"]
+      },
+      {
+        "type": "file",
+        "source": "amazon1.tar.gz",
+        "destination": "/tmp/amazon1.tar.gz",
+        "only": ["amazon1"]
+      },
+      {
+        "type": "shell",
+        "script": "amazon1.sh",
+        "only": ["amazon1"]
+      },
+      {
+        "type": "file",
+        "source": "rpm.tar.gz",
+        "destination": "/tmp/rpm.tar.gz",
+        "only": ["amazon1"]
+      },
+      {
+        "type": "shell",
+        "script": "rpm.sh",
+        "only": ["amazon1"]
+      }
+      ],
+      "post-processors": [
+        {
+          "type": "manifest",
+          "output": "/output/manifest.json",
+          "strip_path": true
+        }
+        ]
+  }
